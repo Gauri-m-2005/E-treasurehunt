@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gift Surprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        /* Popup background */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        /* Popup content */
+        .popup-content {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome 🎉</h1>
+    <p>Scan the QR code to see your surprise!</p>
+
+    <!-- Popup -->
+    <div class="popup" id="giftPopup">
+        <div class="popup-content">
+            <h2>🎁 Surprise Gift!</h2>
+            <p>Congratulations! You unlocked a special message 💖</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Check if URL contains gift=true
+        const urlParams = new URLSearchParams(window.location.search);
+        const gift = urlParams.get('gift');
+
+        if (gift === "true") {
+            document.getElementById("giftPopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("giftPopup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
