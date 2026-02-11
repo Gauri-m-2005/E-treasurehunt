@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>clue 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Gift Card */
+        .gift-card {
+            background: white;
+            width: 250px;
+            height: 150px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gift-card:hover {
+            transform: scale(1.05);
+        }
+
+        .gift-card h2 {
+            margin: 0;
+        }
+
+        /* Hidden Message */
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #ff4d6d;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Gift Card -->
+    <div class="gift-card" onclick="showMessage()">
+        <h2>Click to Open</h2>
+    </div>
+
+    <!-- Message Popup -->
+    <div class="message-box" id="messageBox">
+        <div class="message-content">
+            <h3>Next Clue</h3>
+            <p>Congratulations! This is your surprise message 🎉</p>
+            <button onclick="closeMessage()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("messageBox").style.display = "flex";
+        }
+
+        function closeMessage() {
+            document.getElementById("messageBox").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
